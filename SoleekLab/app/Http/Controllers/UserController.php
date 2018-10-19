@@ -74,7 +74,7 @@ class UserController extends Controller
             ['AT' => 'Austria'],
         ];
         
-        return response()->json(['success'=>$countries], 200);
+        return response()->json(['$countries'=>$countries], 200);
        
         
     }
