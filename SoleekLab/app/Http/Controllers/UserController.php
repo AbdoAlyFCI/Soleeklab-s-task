@@ -45,8 +45,8 @@ class UserController extends Controller
         $input =$request->all();
         $input['password']=bcrypt($input['password']);
         $user =User::create($input);
-        $token =JWTAuth::fromUser($user);
-        return Response::json(compact('token'));
+        $success['token']=$user->createToken('MyApp')->accessToken;
+        return response()->json(['success'=>$success], 200);
     }
     public function details(){
 
